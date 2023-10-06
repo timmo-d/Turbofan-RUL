@@ -4,15 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="72c6d6d8-51c7-401f-b006-4f44b00d3098" name="Default" comment="Classification Model">
-      <change afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/Update.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Update.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+    <list default="true" id="72c6d6d8-51c7-401f-b006-4f44b00d3098" name="Default" comment="Added requirements file">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Article 07.py" beforeDir="false" afterPath="$PROJECT_DIR$/Article 07.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Demo.py" beforeDir="false" afterPath="$PROJECT_DIR$/Demo.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ScikitLearn Feature Selection.py" beforeDir="false" afterPath="$PROJECT_DIR$/ScikitLearn Feature Selection.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/presenting/Chart.py" beforeDir="false" afterPath="$PROJECT_DIR$/presenting/Chart.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -246,7 +242,7 @@
       <recent name="$PROJECT_DIR$/GridSearch[DL]" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.Article 07">
+  <component name="RunManager">
     <configuration default="true" type="tests" factoryName="Attests">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -743,7 +739,7 @@
       <option name="project" value="LOCAL" />
       <updated>1481703004346</updated>
     </task>
-    <option name="localTasksCounter" value="61" />
+    <option name="localTasksCounter" value="62" />
     <servers />
   </component>
   <component name="TodoView">
@@ -797,6 +793,17 @@
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout-to-restore>
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="Vcs.Log.UiProperties">
     <option name="RECENTLY_FILTERED_USER_GROUPS">
       <collection />
@@ -809,7 +816,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$" />
     </ignored-roots>
-    <MESSAGE value="Scoring Model Update 1" />
     <MESSAGE value="Probability Out Method Complete" />
     <MESSAGE value="Moving Weighted Average" />
     <MESSAGE value="Updated Scoring Model 7 with relevant weights" />
@@ -834,7 +840,8 @@
     <MESSAGE value="Select features and train" />
     <MESSAGE value="Select features and train scikitlearn" />
     <MESSAGE value="Classification Model" />
-    <option name="LAST_COMMIT_MESSAGE" value="Classification Model" />
+    <MESSAGE value="Added requirements file" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added requirements file" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

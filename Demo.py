@@ -63,9 +63,10 @@ for column in rm_columns:
     ac_train_columns.remove(column)
 
 # Define AutoEncoder model
+nfeatures = 18
 auto_encoder_model = H2OAutoEncoderEstimator(
         activation="Tanh",
-        hidden=18,
+        hidden=[nfeatures],
         epochs=150,
         loss='Quadratic',
         distribution='gaussian'
@@ -78,7 +79,7 @@ auto_encoder_model.train(x=ac_train_columns, training_frame=h_train, validation_
 reconstruction_error = auto_encoder_model.anomaly(test_data=h_train, per_feature=False)
 error_str = reconstruction_error.get_frame_data()
 err_list = map(float, error_str.split("\n")[1:-1])
-
+err_list = np.array(list(err_list))
 # Filter anomalies in reconstruction error
 '''
 IQR Rule

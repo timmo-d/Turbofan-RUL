@@ -9,7 +9,7 @@ def residual(actual, predicted):
     :param predicted: Predicted data
     :return: Residual error array
     '''
-    if (len(actual) <> len(predicted)):
+    if (len(actual) != len(predicted)):
         return
     return np.array(actual) - np.array(predicted)
 
@@ -29,7 +29,7 @@ def residual_vs_estimated(actual, predict):
     plt.show()
 
 def acutal_and_predict(actual, predicted):
-    if(len(actual) <> len(predicted)):
+    if(len(actual) != len(predicted)):
         return
 
     size = len(actual)
