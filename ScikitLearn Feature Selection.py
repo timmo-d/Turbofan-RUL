@@ -67,7 +67,7 @@ testing_frame = pd.read_csv('datasets/test.csv')
 
 for feature in training_columns:
     if feature not in selected_features:
-        print "Removed :",feature
+        print("Removed :",feature)
         del training_frame[feature]
         del testing_frame[feature]
 
@@ -118,8 +118,8 @@ y_test = test[:, column_count-1]
 rf.fit(x_train,y_train)
 result = rf.predict(x_test)
 
-print "Root Mean Squared Error", mean_squared_error(y_test, result) ** 0.5
-print "Mean Absolute Error", mean_absolute_error(y_test, result)
+print( "Root Mean Squared Error", mean_squared_error(y_test, result) ** 0.5)
+print( "Mean Absolute Error", mean_absolute_error(y_test, result))
 
 
 

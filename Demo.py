@@ -119,21 +119,21 @@ for column in rm_columns:
     dl_train_columns.remove(column)
 
 # Building multiple models
-print "Building Models"
-print "---------------"
+print("Building Models")
+print("---------------")
 model_array = range(_nmodels)
 for i in range(_nmodels):
     model_array[i] = H2ODeepLearningEstimator()
 
 # Training models
-print "Training Models"
-print "---------------"
+print("Training Models")
+print("---------------")
 for i in range(_nmodels):
     model_array[i].train(x=dl_train_columns, y=response_column, training_frame=h_train, nfolds=10)
 
 # Validate models and assign weights
-print "Validating Models"
-print "-----------------"
+print("Validating Models")
+print("-----------------")
 rmse_vals = np.zeros(shape=_nmodels) # Store root mean squared error of each model
 for i in range(_nmodels):
     # performance = model_array[i].model_performance(test_data=h_validate)
@@ -152,15 +152,15 @@ weights_array = [weights_array[i] for i in selected_models]  # Weights related t
 _nmodels = _smodels
 
 # Predicting
-print "Predicting"
-print "----------"
+print("Predicting")
+print("----------")
 prediction_array = range(_nmodels) # Store predictions related to each model. 2D array
 for i in range(_nmodels):
     prediction_array[i] = model_array[i].predict(h_test)
 
 # Filter predictions
-print "Filtering Predictions"
-print "---------------------"
+print("Filtering Predictions")
+print("---------------------")
 final_prediction = np.zeros(shape=h_test.nrow)
 for i in range(h_test.nrow):
     per_model_result = []
@@ -177,10 +177,10 @@ for i in range(h_test.nrow):
 
 
 # Summary
-print "Result"
-print "------"
-print "Root Mean Squared Error :", math.sqrt(mean_squared_error(ground_truth_data, final_prediction))
-print "Mean Absolute Error     :", mean_absolute_error(ground_truth_data, final_prediction)
+print("Result")
+print("------")
+print("Root Mean Squared Error :", math.sqrt(mean_squared_error(ground_truth_data, final_prediction)))
+print("Mean Absolute Error     :", mean_absolute_error(ground_truth_data, final_prediction))
 
 Chart.residual_histogram(ground_truth_data, final_prediction)
 Chart.residual_vs_estimated(ground_truth_data, final_prediction)
