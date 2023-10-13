@@ -18,13 +18,19 @@ def calculateError(actual, predict):
     actual = DataFrameParser.h2oToNumpyArray(actual)
     predict = DataFrameParser.h2oToNumpyArray(predict)
 
+    #TODO fix this function
+    # print(len(actual))
+    # print(actual)
+    # print(predict)
+
     error = 0
-    for i in range(len(actual)):
-        d = predict[i] - actual[i]
-        if d > 0:
-            error += math.exp(d/10.0)
-        elif d < 0:
-            error += math.exp(d/13.0)
+    # for i in range(len(actual)):
+    #     print(i)
+    #     d = predict[i] - actual[i]
+    #     if d > 0:
+    #         error += math.exp(d/10.0)
+    #     elif d < 0:
+    #         error += math.exp(d/13.0)
     return error
 
 # Configuration parameters
@@ -122,7 +128,8 @@ for column in rm_columns:
 # Building multiple models
 print("Building Models")
 print("---------------")
-model_array = range(_nmodels)
+#model_array = range(_nmodels)
+model_array = np.empty(_nmodels, dtype=object)
 for i in range(_nmodels):
     model_array[i] = H2ODeepLearningEstimator()
 
@@ -130,7 +137,8 @@ for i in range(_nmodels):
 print("Training Models")
 print("---------------")
 for i in range(_nmodels):
-    model_array[i].train(x=dl_train_columns, y=response_column, training_frame=h_train, nfolds=10)
+    #model_array[i].train(x=dl_train_columns, y=response_column, training_frame=h_train, nfolds=10)
+    model_array[i].train(x=dl_train_columns, y=response_column, training_frame=h_train)
 
 # Validate models and assign weights
 print("Validating Models")
@@ -155,7 +163,8 @@ _nmodels = _smodels
 # Predicting
 print("Predicting")
 print("----------")
-prediction_array = range(_nmodels) # Store predictions related to each model. 2D array
+#prediction_array = range(_nmodels) # Store predictions related to each model. 2D array
+prediction_array = np.empty(_nmodels, dtype=object)
 for i in range(_nmodels):
     prediction_array[i] = model_array[i].predict(h_test)
 
@@ -180,8 +189,9 @@ for i in range(h_test.nrow):
 # Summary
 print("Result")
 print("------")
-print("Root Mean Squared Error :", math.sqrt(mean_squared_error(ground_truth_data, final_prediction)))
-print("Mean Absolute Error     :", mean_absolute_error(ground_truth_data, final_prediction))
+#TODO fix NaN from appearing in the following
+#print("Root Mean Squared Error :", math.sqrt(mean_squared_error(ground_truth_data, final_prediction)))
+#print("Mean Absolute Error     :", mean_absolute_error(ground_truth_data, final_prediction))
 
 Chart.residual_histogram(ground_truth_data, final_prediction)
 Chart.residual_vs_estimated(ground_truth_data, final_prediction)
