@@ -42,17 +42,17 @@ anomaly_model.train(x=anomaly_train_columns, training_frame=h_train)
 reconstruction_error = anomaly_model.anomaly(test_data=h_train, per_feature=False)
 error_str = reconstruction_error.get_frame_data()
 err_list = map(float, error_str.split("\n")[1:-1])
-err_list = np.array(err_list)
-
+#err_list = np.array(err_list)
+err_list = np.fromiter(err_list,dtype='float')
 # Threshold
 threshold = np.amax(err_list) * 0.97
 
-print "Max Reconstruction Error       :", reconstruction_error.max()
-print "Threshold Reconstruction Error :", threshold
+print("Max Reconstruction Error       :", reconstruction_error.max())
+print("Threshold Reconstruction Error :", threshold)
 
 p_filter = Filter.filterDataAutoEncoder(panda_frame=p_train, reconstruction_error=err_list, threshold=threshold)
 p_test = pd.read_csv('datasets/test.csv')
-print p_filter
+print(p_filter)
 
 del p_filter['Setting3']
 del p_filter['Sensor1']
@@ -80,19 +80,22 @@ training_columns.remove('Time')
 training_columns.remove('RUL')
 
 model = H2ODeepLearningEstimator(variable_importances=True)
-model.train(x=columns, y='RUL', training_frame=h_filter, nfolds=10)
+#model.train(x=columns, y='RUL', training_frame=h_filter, nfolds=10)
+model.train(x=columns, y='RUL', training_frame=h_filter)
 
-print model.model_performance(test_data=h_test)
+print(model.model_performance(test_data=h_test))
 
-predict = DataFrameParser.h2oToNumpyArray(model.predict(test_data=h_test))
-actual = DataFrameParser.h2oToNumpyArray(h_test['RUL'])
+# predict = DataFrameParser.h2oToNumpyArray(model.predict(test_data=h_test))
+# actual = DataFrameParser.h2oToNumpyArray(h_test['RUL'])
+actual = h_test['RUL'].as_data_frame().to_numpy()
+predict = model.predict(test_data=h_test).as_data_frame().to_numpy()
 # var_imp = model.varimp()
 # for detail in var_imp:
 #     print detail[0]
 
 Chart.residual_histogram(actual, predict)
 Chart.residual_vs_estimated(actual, predict)
-Chart.acutal_and_predict(actual, predict)
+Chart.actual_and_predict(actual, predict)
 
 
 

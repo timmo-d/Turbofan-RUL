@@ -31,7 +31,7 @@ anomaly_model = H2OAutoEncoderEstimator(
 
 # Select relevant features
 anomaly_train_columns = list(p_train.columns)
-print anomaly_train_columns
+print(anomaly_train_columns)
 anomaly_train_columns.remove('RUL')
 anomaly_train_columns.remove('BIN')
 anomaly_train_columns.remove('UnitNumber')
@@ -52,8 +52,8 @@ err_list = np.array(err_list)
 # Threshold
 threshold = np.amax(err_list) * 0.97
 
-print "Max Reconstruction Error       :", reconstruction_error.max()
-print "Threshold Reconstruction Error :", threshold
+print("Max Reconstruction Error       :", reconstruction_error.max())
+print("Threshold Reconstruction Error :", threshold)
 
 # Filter anomalies based on reconstruction error
 p_filter = Filter.filterDataAutoEncoder(panda_frame=p_train, reconstruction_error=err_list, threshold=threshold)
@@ -91,8 +91,8 @@ predict = DataFrameParser.h2oToList(predict['predict'])
 actual = DataFrameParser.h2oToList(h_test['BIN'])
 
 Measures.confusion_matrix(actual, predict)
-print predict
-print actual
+print(predict)
+print(actual)
 
 
 

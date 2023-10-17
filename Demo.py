@@ -15,22 +15,19 @@ from presenting import Chart
 
 h2o.init()
 def calculateError(actual, predict):
-    actual = DataFrameParser.h2oToNumpyArray(actual)
-    predict = DataFrameParser.h2oToNumpyArray(predict)
+    #actual = DataFrameParser.h2oToNumpyArray(actual)
+    actual = actual.as_data_frame().to_numpy()
 
-    #TODO fix this function
-    # print(len(actual))
-    # print(actual)
-    # print(predict)
+    #predict = DataFrameParser.h2oToNumpyArray(predict)
+    predict = predict.as_data_frame().to_numpy()
 
     error = 0
-    # for i in range(len(actual)):
-    #     print(i)
-    #     d = predict[i] - actual[i]
-    #     if d > 0:
-    #         error += math.exp(d/10.0)
-    #     elif d < 0:
-    #         error += math.exp(d/13.0)
+    for i in range(len(actual)):
+        d = predict[i,0] - actual[i,0]
+        if d > 0:
+            error += math.exp(d/10.0)
+        elif d < 0:
+            error += math.exp(d/13.0)
     return error
 
 # Configuration parameters
@@ -185,17 +182,16 @@ for i in range(h_test.nrow):
 
     final_prediction[i] = result
 
-
 # Summary
 print("Result")
 print("------")
 #TODO fix NaN from appearing in the following
-#print("Root Mean Squared Error :", math.sqrt(mean_squared_error(ground_truth_data, final_prediction)))
-#print("Mean Absolute Error     :", mean_absolute_error(ground_truth_data, final_prediction))
+print("Root Mean Squared Error :", math.sqrt(mean_squared_error(ground_truth_data, final_prediction)))
+print("Mean Absolute Error     :", mean_absolute_error(ground_truth_data, final_prediction))
 
 Chart.residual_histogram(ground_truth_data, final_prediction)
 Chart.residual_vs_estimated(ground_truth_data, final_prediction)
-Chart.acutal_and_predict(ground_truth_data, final_prediction)
+Chart.actual_and_predict(ground_truth_data, final_prediction)
 
 
 

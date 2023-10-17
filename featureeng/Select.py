@@ -12,25 +12,25 @@ def indices_seperate(feature_name=None, data_frame=pd.DataFrame()):
 
     column = []
     if not feature_name:
-        print "Feature name is empty"
+        print("Feature name is empty")
         return
 
     try:
         column = data_frame[feature_name]
     except KeyError:
         # Key not found exception
-        print "Key not found"
+        print("Key not found")
         return
 
     if len(column) == 0:
         # There is nothing to slice
-        print "Nothing to slice"
+        print("Nothing to slice")
         return
 
     column = np.array(column)
 
     # Each index where the value changes
-    indices = np.where(column[:-1] <> column[1:])[0]
+    indices = np.where(column[:-1] != column[1:])[0]
     return indices
 
 def slice(data_column=np.array([]), indices=np.array([])):

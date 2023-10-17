@@ -1,3 +1,5 @@
+import os
+
 import h2o
 import numpy as np
 from h2o.estimators import H2OAutoEncoderEstimator
@@ -48,7 +50,8 @@ anomaly_model.train(x=anomaly_train_columns, training_frame=h_train)
 reconstruction_error = anomaly_model.anomaly(test_data=h_train, per_feature=False)
 error_str = reconstruction_error.get_frame_data()
 err_list = map(float, error_str.split("\n")[1:-1])
-err_list = np.array(err_list)
+#err_list = np.array(err_list)
+err_list = np.fromiter(err_list,dtype='float')
 
 # Threshold
 threshold = np.amax(err_list)
@@ -87,7 +90,8 @@ h_test['BIN'] = h_test['BIN'].asfactor()
 h2o.export_file(frame=h_test, path='test_sid.csv', force=True)
 h2o.export_file(frame=h_filter, path='train_sid.csv', force=True)
 
-model = H2ORandomForestEstimator(nbins=250, ntress=100, max_depth=50, nfolds=10)
+#model = H2ORandomForestEstimator(nbins=250, ntress=100, max_depth=50, nfolds=10)
+model = H2ORandomForestEstimator(nbins=250, max_depth=50, nfolds=10)
 model.train(x=training_columns, y='BIN', training_frame=h_filter)
 
 predict = model.predict(test_data=h_test)
@@ -98,7 +102,7 @@ Measures.confusion_matrix(actual, predict)
 print(predict)
 print(actual)
 
-h2o.download_pojo(model=model, path="/home/wso2123/PycharmProjects/FeatureProcessor/", get_jar=True)
+h2o.download_pojo(model=model, path=os.getcwd(), get_jar=True)
 
 
 

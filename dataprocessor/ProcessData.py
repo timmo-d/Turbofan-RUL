@@ -8,8 +8,8 @@ _moving_standard_deviation_window = 10
 _moving_probability_window = 10
 
 def testData(moving_average=False, moving_median=False, standard_deviation=False, moving_entropy=False, entropy=False, probability_distribution=False, moving_probability=False, probability_from_file=False, moving_k_closest_average=False, moving_threshold_average=False, moving_median_centered_average=False, moving_weighted_average=False, rul=True,bin_classification=False):
-    print "Testing frame process has started"
-    print "---------------------------------"
+    print("Testing frame process has started")
+    print("---------------------------------")
     # Test data set preprocessor
     testing_frame = pd.read_csv("datasets/test.csv")
     ground_truth = pd.read_csv("datasets/rul.csv")
@@ -29,7 +29,7 @@ def testData(moving_average=False, moving_median=False, standard_deviation=False
     if moving_average:
         # Moving average window 5
         current_work = 0
-        print "Applying Moving Average"
+        print("Applying Moving Average")
 
         for column_name in selected_column_names:
             current_work += 1
@@ -48,7 +48,7 @@ def testData(moving_average=False, moving_median=False, standard_deviation=False
     if moving_median:
         # Moving median window 5
         current_work = 0
-        print "Applying Moving Median"
+        print("Applying Moving Median")
 
         for column_name in selected_column_names:
             current_work += 1
@@ -67,7 +67,7 @@ def testData(moving_average=False, moving_median=False, standard_deviation=False
     if standard_deviation:
         # Moving entropy
         current_work = 0
-        print "Applying Standard Deviation"
+        print("Applying Standard Deviation")
 
         for column_name in selected_column_names:
             current_work += 1
@@ -86,7 +86,7 @@ def testData(moving_average=False, moving_median=False, standard_deviation=False
     if moving_entropy:
         # Moving entropy
         current_work = 0
-        print "Applying Moving Entropy"
+        print("Applying Moving Entropy")
 
         for column_name in selected_column_names:
             current_work += 1
@@ -104,7 +104,7 @@ def testData(moving_average=False, moving_median=False, standard_deviation=False
     if entropy:
         # Entropy
         current_work = 0
-        print "Applying Entropy"
+        print("Applying Entropy")
 
         for column_name in selected_column_names:
             current_work += 1
@@ -117,7 +117,7 @@ def testData(moving_average=False, moving_median=False, standard_deviation=False
     if probability_distribution:
         # Probability distribution
         current_work = 0
-        print "Applying Probability Distribution"
+        print("Applying Probability Distribution")
         for column_name in selected_column_names:
             current_work += 1
             column = testing_frame[column_name]
@@ -130,7 +130,7 @@ def testData(moving_average=False, moving_median=False, standard_deviation=False
     if moving_probability:
         # Moving probability distribution
         current_work = 0
-        print "Applying Moving probability"
+        print("Applying Moving probability")
         for column_name in selected_column_names:
             current_work += 1
             column = testing_frame[column_name]
@@ -144,7 +144,7 @@ def testData(moving_average=False, moving_median=False, standard_deviation=False
         # Load probabilities from file
         file_name = 'json.txt'
         current_work = 0
-        print "Applying Probability From File"
+        print("Applying Probability From File")
         for column_name in selected_column_names:
             current_work += 1
             column = testing_frame[column_name]
@@ -157,7 +157,7 @@ def testData(moving_average=False, moving_median=False, standard_deviation=False
     if moving_k_closest_average:
         # Moving k closest average
         current_work = 0
-        print "Applying K Closest Average"
+        print("Applying K Closest Average")
         for column_name in selected_column_names:
             current_work += 1
             column = testing_frame[column_name]
@@ -170,7 +170,7 @@ def testData(moving_average=False, moving_median=False, standard_deviation=False
     if moving_threshold_average:
         # Moving threshold average
         current_work = 0
-        print "Applying Threshold Average"
+        print("Applying Threshold Average")
         for column_name in selected_column_names:
             current_work += 1
             column = testing_frame[column_name]
@@ -184,7 +184,7 @@ def testData(moving_average=False, moving_median=False, standard_deviation=False
     if moving_median_centered_average:
         # Moving median centered average
         current_work = 0
-        print "Applying Median Centered Average"
+        print("Applying Median Centered Average")
         for column_name in selected_column_names:
             current_work += 1
             column = testing_frame[column_name]
@@ -198,7 +198,7 @@ def testData(moving_average=False, moving_median=False, standard_deviation=False
     if moving_weighted_average:
         # Moving weighted average
         current_work = 0
-        print "Applying Weighted Average"
+        print("Applying Weighted Average")
         for column_name in selected_column_names:
             current_work += 1
             column = testing_frame[column_name]
@@ -223,22 +223,22 @@ def testData(moving_average=False, moving_median=False, standard_deviation=False
 
     if rul:
         filtered_frame['RUL'] = pd.Series(ground_truth['RUL'], index=filtered_frame.index)
-        print "Applying RUL"
+        print("Applying RUL")
 
     if bin_classification:
         label = [0 if x >= 30 else 1 for x in ground_truth['RUL']]
         filtered_frame['BIN'] = pd.Series(label, index=filtered_frame.index)
-        print "Applying BIN"
+        print("Applying BIN")
 
 
 
-    print "Testing frame process is completed\n"
+    print("Testing frame process is completed\n")
     filtered_frame.to_csv("Testing.csv", index=False)
     return filtered_frame
 
 def trainData(moving_average=False, moving_median=False, standard_deviation=False, moving_entropy=False, entropy=False, probability_distribution=False, moving_probability=False, moving_k_closest_average=False, moving_threshold_average=False, moving_median_centered_average=False, moving_weighted_average=False, rul=False, bin_classification=False):
-    print "Training frame process has started"
-    print "----------------------------------"
+    print("Training frame process has started")
+    print("----------------------------------")
 
     # Data set preprocessor
     training_frame = pd.read_csv("datasets/train.csv")
@@ -256,7 +256,7 @@ def trainData(moving_average=False, moving_median=False, standard_deviation=Fals
     if moving_average:
         # Moving average window 5
         current_work = 0
-        print "Applying Moving Average"
+        print("Applying Moving Average")
 
         for column_name in selected_column_names:
             current_work += 1
@@ -274,7 +274,7 @@ def trainData(moving_average=False, moving_median=False, standard_deviation=Fals
     if moving_median:
         # Moving median window 5
         current_work = 0
-        print "Applying Moving Median"
+        print("Applying Moving Median")
 
         for column_name in selected_column_names:
             current_work += 1
@@ -292,7 +292,7 @@ def trainData(moving_average=False, moving_median=False, standard_deviation=Fals
     if standard_deviation:
         # Moving standard deviation 10
         current_work = 0
-        print "Applying Standard Deviation"
+        print("Applying Standard Deviation")
 
         for column_name in selected_column_names:
             current_work += 1
@@ -310,7 +310,7 @@ def trainData(moving_average=False, moving_median=False, standard_deviation=Fals
     if moving_entropy:
         # Moving entropy
         current_work = 0
-        print "Applying Moving Entropy"
+        print("Applying Moving Entropy")
 
         for column_name in selected_column_names:
             current_work += 1
@@ -328,7 +328,7 @@ def trainData(moving_average=False, moving_median=False, standard_deviation=Fals
     if entropy:
         # Entropy
         current_work = 0
-        print "Applying Entropy"
+        print("Applying Entropy")
 
         for column_name in selected_column_names:
             current_work += 1
@@ -340,7 +340,7 @@ def trainData(moving_average=False, moving_median=False, standard_deviation=Fals
     if probability_distribution:
         # Probability distribution
         current_work = 0
-        print "Applying Probability Distribution"
+        print("Applying Probability Distribution")
         for column_name in selected_column_names:
             current_work += 1
             column = training_frame[column_name]
@@ -353,7 +353,7 @@ def trainData(moving_average=False, moving_median=False, standard_deviation=Fals
     if moving_probability:
         # Moving probability distribution
         current_work = 0
-        print "Applying Moving probability"
+        print("Applying Moving probability")
         for column_name in selected_column_names:
             current_work += 1
             column = training_frame[column_name]
@@ -366,7 +366,7 @@ def trainData(moving_average=False, moving_median=False, standard_deviation=Fals
     if moving_k_closest_average:
         # Moving k closest average
         current_work = 0
-        print "Applying K Closest Average"
+        print("Applying K Closest Average")
         for column_name in selected_column_names:
             current_work += 1
             column = training_frame[column_name]
@@ -380,7 +380,7 @@ def trainData(moving_average=False, moving_median=False, standard_deviation=Fals
     if moving_threshold_average:
         # Moving threshold average
         current_work = 0
-        print "Applying Threshold Average"
+        print("Applying Threshold Average")
         for column_name in selected_column_names:
             current_work += 1
             column = training_frame[column_name]
@@ -394,7 +394,7 @@ def trainData(moving_average=False, moving_median=False, standard_deviation=Fals
     if moving_median_centered_average:
         # Moving median centered average
         current_work = 0
-        print "Applying Median Centered Average"
+        print("Applying Median Centered Average")
         for column_name in selected_column_names:
             current_work += 1
             column = training_frame[column_name]
@@ -408,7 +408,7 @@ def trainData(moving_average=False, moving_median=False, standard_deviation=Fals
     if moving_weighted_average:
         # Moving weighted average
         current_work = 0
-        print "Applying Weighted Average"
+        print("Applying Weighted Average")
         for column_name in selected_column_names:
             current_work += 1
             column = training_frame[column_name]
@@ -428,15 +428,15 @@ def trainData(moving_average=False, moving_median=False, standard_deviation=Fals
         time_column = training_frame['Time']
         label = DataSetSpecific.binary_classification(indices=indices, time_series=time_column)
         training_frame['BIN'] = pd.Series(label, index=training_frame.index)
-        print "Applying BIN"
+        print("Applying BIN")
 
-    print "Training frame process is completed\n"
+    print("Training frame process is completed\n")
     training_frame.to_csv("Training.csv", index=False)
     return training_frame
 
 def trainDataToFrame(training_frame, selected_column_names, moving_average=False, moving_median=False, standard_deviation=False, moving_entropy=False, entropy=False, probability_distribution=False, moving_probability=False, moving_k_closest_average=False, moving_threshold_average=False, moving_median_centered_average=False, moving_weighted_average=False, rul=False, bin_classification=False):
-    print "Training frame process has started"
-    print "----------------------------------"
+    print("Training frame process has started")
+    print("----------------------------------")
 
     indices = Select.indices_seperate(feature_name="UnitNumber", data_frame=training_frame)
 
@@ -446,7 +446,7 @@ def trainDataToFrame(training_frame, selected_column_names, moving_average=False
     if moving_average:
         # Moving average window 5
         current_work = 0
-        print "Applying Moving Average"
+        print("Applying Moving Average")
 
         for column_name in selected_column_names:
             current_work += 1
@@ -464,7 +464,7 @@ def trainDataToFrame(training_frame, selected_column_names, moving_average=False
     if moving_median:
         # Moving median window 5
         current_work = 0
-        print "Applying Moving Median"
+        print("Applying Moving Median")
 
         for column_name in selected_column_names:
             current_work += 1
@@ -482,7 +482,7 @@ def trainDataToFrame(training_frame, selected_column_names, moving_average=False
     if standard_deviation:
         # Moving standard deviation 10
         current_work = 0
-        print "Applying Standard Deviation"
+        print("Applying Standard Deviation")
 
         for column_name in selected_column_names:
             current_work += 1
@@ -500,7 +500,7 @@ def trainDataToFrame(training_frame, selected_column_names, moving_average=False
     if moving_entropy:
         # Moving entropy
         current_work = 0
-        print "Applying Moving Entropy"
+        print("Applying Moving Entropy")
 
         for column_name in selected_column_names:
             current_work += 1
@@ -518,7 +518,7 @@ def trainDataToFrame(training_frame, selected_column_names, moving_average=False
     if entropy:
         # Entropy
         current_work = 0
-        print "Applying Entropy"
+        print("Applying Entropy")
 
         for column_name in selected_column_names:
             current_work += 1
@@ -530,7 +530,7 @@ def trainDataToFrame(training_frame, selected_column_names, moving_average=False
     if probability_distribution:
         # Probability distribution
         current_work = 0
-        print "Applying Probability Distribution"
+        print("Applying Probability Distribution")
         for column_name in selected_column_names:
             current_work += 1
             column = training_frame[column_name]
@@ -542,7 +542,7 @@ def trainDataToFrame(training_frame, selected_column_names, moving_average=False
     if moving_probability:
         # Moving probability distribution
         current_work = 0
-        print "Applying Moving probability"
+        print("Applying Moving probability")
         for column_name in selected_column_names:
             current_work += 1
             column = training_frame[column_name]
@@ -555,7 +555,7 @@ def trainDataToFrame(training_frame, selected_column_names, moving_average=False
     if moving_k_closest_average:
         # Moving k closest average
         current_work = 0
-        print "Applying K Closest Average"
+        print("Applying K Closest Average")
         for column_name in selected_column_names:
             current_work += 1
             column = training_frame[column_name]
@@ -569,7 +569,7 @@ def trainDataToFrame(training_frame, selected_column_names, moving_average=False
     if moving_threshold_average:
         # Moving threshold average
         current_work = 0
-        print "Applying Threshold Average"
+        print("Applying Threshold Average")
         for column_name in selected_column_names:
             current_work += 1
             column = training_frame[column_name]
@@ -583,7 +583,7 @@ def trainDataToFrame(training_frame, selected_column_names, moving_average=False
     if moving_median_centered_average:
         # Moving median centered average
         current_work = 0
-        print "Applying Median Centered Average"
+        print("Applying Median Centered Average")
         for column_name in selected_column_names:
             current_work += 1
             column = training_frame[column_name]
@@ -597,7 +597,7 @@ def trainDataToFrame(training_frame, selected_column_names, moving_average=False
     if moving_weighted_average:
         # Moving weighted average
         current_work = 0
-        print "Applying Weighted Average"
+        print("Applying Weighted Average")
         for column_name in selected_column_names:
             current_work += 1
             column = training_frame[column_name]
@@ -612,22 +612,22 @@ def trainDataToFrame(training_frame, selected_column_names, moving_average=False
         time_column = training_frame['Time']
         rul = DataSetSpecific.remaining_usefullifetime(indices=indices, time_series=time_column)
         training_frame['RUL'] = pd.Series(rul, index=training_frame.index)
-        print "Applying RUL"
+        print("Applying RUL")
 
     if bin_classification:
         time_column = training_frame['Time']
         label = DataSetSpecific.binary_classification(indices=indices, time_series=time_column)
         training_frame['BIN'] = pd.Series(label, index=training_frame.index)
-        print "Applying BIN"
+        print("Applying BIN")
 
 
-    print "Training frame process is completed\n"
+    print("Training frame process is completed\n")
     training_frame.to_csv("Training.csv", index=False)
     return training_frame
 
 def testDataToFrame(testing_frame, selected_column_names, moving_average=False, moving_median=False, standard_deviation=False, moving_entropy=False, entropy=False, probability_distribution=False, moving_probability=False, probability_from_file=False, moving_k_closest_average=False, moving_threshold_average=False, moving_median_centered_average=False, moving_weighted_average=False,rul=True, bin_classification=False):
-    print "Testing frame process has started"
-    print "---------------------------------"
+    print("Testing frame process has started")
+    print("---------------------------------")
     # Test data set preprocessor
     ground_truth = pd.read_csv("datasets/rul.csv")
 
@@ -640,7 +640,7 @@ def testDataToFrame(testing_frame, selected_column_names, moving_average=False, 
     if moving_average:
         # Moving average window 5
         current_work = 0
-        print "Applying Moving Average"
+        print("Applying Moving Average")
 
         for column_name in selected_column_names:
             current_work += 1
@@ -659,7 +659,7 @@ def testDataToFrame(testing_frame, selected_column_names, moving_average=False, 
     if moving_median:
         # Moving median window 5
         current_work = 0
-        print "Applying Moving Median"
+        print("Applying Moving Median")
 
         for column_name in selected_column_names:
             current_work += 1
@@ -678,7 +678,7 @@ def testDataToFrame(testing_frame, selected_column_names, moving_average=False, 
     if standard_deviation:
         # Moving entropy
         current_work = 0
-        print "Applying Standard Deviation"
+        print("Applying Standard Deviation")
 
         for column_name in selected_column_names:
             current_work += 1
@@ -698,7 +698,7 @@ def testDataToFrame(testing_frame, selected_column_names, moving_average=False, 
     if moving_entropy:
         # Moving entropy
         current_work = 0
-        print "Applying Moving Entropy"
+        print("Applying Moving Entropy")
 
         for column_name in selected_column_names:
             current_work += 1
@@ -718,7 +718,7 @@ def testDataToFrame(testing_frame, selected_column_names, moving_average=False, 
     if entropy:
         # Entropy
         current_work = 0
-        print "Applying Entropy"
+        print("Applying Entropy")
 
         for column_name in selected_column_names:
             current_work += 1
@@ -731,7 +731,7 @@ def testDataToFrame(testing_frame, selected_column_names, moving_average=False, 
     if probability_distribution:
         # Probability distribution
         current_work = 0
-        print "Applying Probability Distribution"
+        print("Applying Probability Distribution")
         for column_name in selected_column_names:
             current_work += 1
             column = testing_frame[column_name]
@@ -744,7 +744,7 @@ def testDataToFrame(testing_frame, selected_column_names, moving_average=False, 
     if moving_probability:
         # Moving probability distribution
         current_work = 0
-        print "Applying Moving probability"
+        print("Applying Moving probability")
         for column_name in selected_column_names:
             current_work += 1
             column = testing_frame[column_name]
@@ -759,7 +759,7 @@ def testDataToFrame(testing_frame, selected_column_names, moving_average=False, 
         # Load probabilities from file
         file_name = 'json.txt'
         current_work = 0
-        print "Applying Probability From File"
+        print("Applying Probability From File")
         for column_name in selected_column_names:
             current_work += 1
             column = testing_frame[column_name]
@@ -772,7 +772,7 @@ def testDataToFrame(testing_frame, selected_column_names, moving_average=False, 
     if moving_k_closest_average:
         # Moving k closest average
         current_work = 0
-        print "Applying K Closest Average"
+        print("Applying K Closest Average")
         for column_name in selected_column_names:
             current_work += 1
             column = testing_frame[column_name]
@@ -786,7 +786,7 @@ def testDataToFrame(testing_frame, selected_column_names, moving_average=False, 
     if moving_threshold_average:
         # Moving threshold average
         current_work = 0
-        print "Applying Threshold Average"
+        print("Applying Threshold Average")
         for column_name in selected_column_names:
             current_work += 1
             column = testing_frame[column_name]
@@ -800,7 +800,7 @@ def testDataToFrame(testing_frame, selected_column_names, moving_average=False, 
     if moving_median_centered_average:
         # Moving median centered average
         current_work = 0
-        print "Applying Median Centered Average"
+        print("Applying Median Centered Average")
         for column_name in selected_column_names:
             current_work += 1
             column = testing_frame[column_name]
@@ -814,7 +814,7 @@ def testDataToFrame(testing_frame, selected_column_names, moving_average=False, 
     if moving_weighted_average:
         # Moving weighted average
         current_work = 0
-        print "Applying Weighted Average"
+        print("Applying Weighted Average")
         for column_name in selected_column_names:
             current_work += 1
             column = testing_frame[column_name]
@@ -836,14 +836,14 @@ def testDataToFrame(testing_frame, selected_column_names, moving_average=False, 
 
     if rul:
         filtered_frame['RUL'] = pd.Series(ground_truth['RUL'], index=filtered_frame.index)
-        print "Applying RUL"
+        print("Applying RUL")
 
     if bin_classification:
         label = [0 if x >= 30 else 1 for x in ground_truth['RUL']]
         filtered_frame['BIN'] = pd.Series(label, index=filtered_frame.index)
-        print "Applying BIN"
+        print("Applying BIN")
 
-    print "Testing frame process is completed\n"
+    print("Testing frame process is completed\n")
     filtered_frame.to_csv("Testing.csv", index=False)
     return filtered_frame
 
@@ -852,10 +852,10 @@ def from_file(series, column_name, no_of_bins=250):
     data = FileHandler.read_json(file_name)
 
     rang = data[column_name]['rang'].split(",")
-    x = map(float, rang)
+    x = list(map(float, rang))
 
     prob = data[column_name]['prob'].split(",")
-    p = map(float, prob)
+    p = list(map(float, prob))
 
     bin_size = float(data[column_name]['sbin'])
 
@@ -870,7 +870,7 @@ def from_file(series, column_name, no_of_bins=250):
 
     # Calculate bin size
     min_value = x[0]
-
+    #min_value = pd.DataFrame(x).to_numpy()[0]
     '''
      Bin size becomes zero when the values in the series are not changing
      That means probability of occuring that value is 1 which means entropy is zero

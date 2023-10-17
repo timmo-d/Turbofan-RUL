@@ -6,7 +6,30 @@
   <component name="ChangeListManager">
     <list default="true" id="72c6d6d8-51c7-401f-b006-4f44b00d3098" name="Default" comment="started debugging">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Article 01.py" beforeDir="false" afterPath="$PROJECT_DIR$/Article 01.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Article 03.py" beforeDir="false" afterPath="$PROJECT_DIR$/Article 03.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Article 04.py" beforeDir="false" afterPath="$PROJECT_DIR$/Article 04.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Article 05.py" beforeDir="false" afterPath="$PROJECT_DIR$/Article 05.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Article 06.py" beforeDir="false" afterPath="$PROJECT_DIR$/Article 06.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Article 07.py" beforeDir="false" afterPath="$PROJECT_DIR$/Article 07.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DL-NoiseRemoval.py" beforeDir="false" afterPath="$PROJECT_DIR$/DL-NoiseRemoval.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Demo-KFold.py" beforeDir="false" afterPath="$PROJECT_DIR$/Demo-KFold.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Demo.py" beforeDir="false" afterPath="$PROJECT_DIR$/Demo.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Filter1.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Filter1.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TunedModel[DeepLearning].py" beforeDir="false" afterPath="$PROJECT_DIR$/TunedModel[DeepLearning].py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TunedModel[GradientBoosting].py" beforeDir="false" afterPath="$PROJECT_DIR$/TunedModel[GradientBoosting].py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TunedModel[RandomForest].py" beforeDir="false" afterPath="$PROJECT_DIR$/TunedModel[RandomForest].py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataprocessor/Filter.py" beforeDir="false" afterPath="$PROJECT_DIR$/dataprocessor/Filter.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataprocessor/ProcessData.py" beforeDir="false" afterPath="$PROJECT_DIR$/dataprocessor/ProcessData.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/estimator.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/estimator.pkl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/featureeng/Math.py" beforeDir="false" afterPath="$PROJECT_DIR$/featureeng/Math.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/featureeng/Measures.py" beforeDir="false" afterPath="$PROJECT_DIR$/featureeng/Measures.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/featureeng/Select.py" beforeDir="false" afterPath="$PROJECT_DIR$/featureeng/Select.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/json.txt" beforeDir="false" afterPath="$PROJECT_DIR$/json.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mapper.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/mapper.pkl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/presenting/Chart.py" beforeDir="false" afterPath="$PROJECT_DIR$/presenting/Chart.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test_sid.csv" beforeDir="false" afterPath="$PROJECT_DIR$/test_sid.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/train_sid.csv" beforeDir="false" afterPath="$PROJECT_DIR$/train_sid.csv" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -737,7 +760,7 @@
       <option name="project" value="LOCAL" />
       <updated>1481703004346</updated>
     </task>
-    <option name="localTasksCounter" value="63" />
+    <option name="localTasksCounter" value="64" />
     <servers />
   </component>
   <component name="TodoView">
@@ -844,10 +867,6 @@
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/dataprocessor/Filter.py</url>
-          <option name="timeStamp" value="14" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/GridSearch[DeepLearning].py</url>
           <line>58</line>

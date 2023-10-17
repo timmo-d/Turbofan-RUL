@@ -41,8 +41,7 @@ for column in rm_columns:
 # Define AutoEncoder model
 auto_encoder_model = H2OAutoEncoderEstimator(
         activation="Tanh",
-        hidden=18,
-        epochs=150,
+        epochs=50,
         loss='Quadratic',
         distribution='gaussian'
     )
@@ -54,6 +53,7 @@ auto_encoder_model.train(x=ac_train_columns, training_frame=h_train, validation_
 reconstruction_error = auto_encoder_model.anomaly(test_data=h_train, per_feature=False)
 error_str = reconstruction_error.get_frame_data()
 err_list = map(float, error_str.split("\n")[1:-1])
+err_list = np.fromiter(err_list, dtype='float')
 
 # Filter anomalies in reconstruction error
 '''
@@ -92,5 +92,5 @@ for column in rm_columns:
 model = H2ODeepLearningEstimator(epochs=100, hidden=[512], nfolds=10)
 model.train(x=dl_train_columns, y=response_column, training_frame=h_data)
 performance = model.model_performance(test_data=h_test)
-print performance
+print(performance)
 

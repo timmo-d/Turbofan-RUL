@@ -9,7 +9,8 @@ from sklearn.linear_model import LinearRegression
 from sklearn.linear_model import Ridge
 from sklearn.metrics import  mean_squared_error, mean_absolute_error
 from sklearn_pandas import DataFrameMapper
-from sklearn.externals import joblib
+#from sklearn.externals import joblib
+import joblib
 from dataprocessor import ProcessData
 import numpy as np
 import os
@@ -62,19 +63,19 @@ rf.fit(X=x, y=y)
 # Get prediction results
 result = rf.predict(tX)
 
-print "Result"
-print "------"
-print result
+print("Result")
+print("------")
+print(result)
 
 # Analyze performance
-print "Performance"
-print "-----------"
-print "Root Mean Squared Error", mean_squared_error(tY, np.array(result)) ** 0.5
-print "Mean Absolute Error", mean_absolute_error(tY, np.array(result))
+print("Performance")
+print("-----------")
+print("Root Mean Squared Error", mean_squared_error(tY, np.array(result)) ** 0.5)
+print("Mean Absolute Error", mean_absolute_error(tY, np.array(result)))
 
 # Dump pickle files
-print df_mapper.features
-print rf.get_params()
+print(df_mapper.features)
+print(rf.get_params())
 
 joblib.dump(df_mapper, mapper_pkl, compress = 3)
 joblib.dump(rf, estimator_pkl, compress = 3)

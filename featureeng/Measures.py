@@ -16,7 +16,7 @@ def correlation(seriesX, seriesY, method='pearson'):
     _lenX = len(seriesX)
     _lenY = len(seriesY)
 
-    if (_lenX <> _lenY):
+    if (_lenX != _lenY):
         # If series are not in equal lengths, it is not possible to calculate correlation between series
         return
 
@@ -29,7 +29,7 @@ def r2(actual, predicted):
     return 1 - (mean_squared_error(actual, np.array(predicted)) / np.var(actual))
 
 def confusion_matrix(actual, predict):
-    if len(actual) <> len(predict):
+    if len(actual) != len(predict):
         return
 
     tn = 0
@@ -48,18 +48,18 @@ def confusion_matrix(actual, predict):
             tp += 1
 
 
-    print "TP", tp
-    print "TN", tn
-    print "FP", fp
-    print "FN", fn
+    print("TP", tp)
+    print("TN", tn)
+    print("FP", fp)
+    print("FN", fn)
 
-    print "Accuracy", 100.0 * (tp + tn) / (tp + tn + fp + fn), "%"
+    print("Accuracy", 100.0 * (tp + tn) / (tp + tn + fp + fn), "%")
 
     recall = float(tp) / (tp + fn)
     precision = float(tp) / (tp + fp)
     f1 = 2*precision*recall / (precision + recall)
 
-    print "Recall    :", recall
-    print "Precision :", precision
-    print "F1 Score  :", f1
+    print("Recall    :", recall)
+    print("Precision :", precision)
+    print("F1 Score  :", f1)
 

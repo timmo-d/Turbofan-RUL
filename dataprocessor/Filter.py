@@ -48,7 +48,8 @@ def filterDataPercentile(panda_frame, columns, lower_percentile, upper_percentil
 
     dict = {}
     for i in rm_index:
-        if dict.has_key(i):
+        #if dict.has_key(i):
+        if i in dict.keys():
             dict[i] += 1
         else:
             dict[i] = 1
@@ -72,10 +73,11 @@ def filterDataPercentile(panda_frame, columns, lower_percentile, upper_percentil
 def filterDataAutoEncoder(panda_frame, reconstruction_error, threshold):
     '''
     :param panda_frame: Input data frame
-    :param reconstruction_error: Reconstruction error fromauto encoders
+    :param reconstruction_error: Reconstruction error from auto encoders
     :param threshold: Anomaly removal threshold
     :return:
     '''
+
     rm_index = []
     for i in range(len(reconstruction_error)):
         if reconstruction_error[i] > threshold:

@@ -28,13 +28,13 @@ training_columns.remove('Time')
 training_columns.remove('RUL')
 
 response_column = 'RUL'
-print "OK"
+print("OK")
 
 model = H2OGradientBoostingEstimator(distribution='poisson', histogram_type='QuantilesGlobal', fold_assignment='auto')
 #model = H2ORandomForestEstimator(ntrees=50, max_depth=20, nbins=100, seed=12345)
 model.train(x=training_columns, y=response_column, training_frame=hTrain, validation_frame=hValidate)
 
-print model.model_performance(test_data=hTest)
+print(model.model_performance(test_data=hTest))
 
 predict = DataFrameParser.h2oToNumpyArray(model.predict(test_data=hTest))
 actual = DataFrameParser.h2oToNumpyArray(hTest['RUL'])
@@ -42,7 +42,7 @@ actual = DataFrameParser.h2oToNumpyArray(hTest['RUL'])
 
 Chart.residual_histogram(actual, predict)
 Chart.residual_vs_estimated(actual, predict)
-Chart.acutal_and_predict(actual, predict)
+Chart.actual_and_predict(actual, predict)
 
 
 

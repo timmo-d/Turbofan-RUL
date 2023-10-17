@@ -133,7 +133,7 @@ def moving_k_closest_average(series, window=5, kclosest=3, default=False):
         return ret
 
 def moving_weighted_average(series, window=5, weights=[1, 2, 3, 4, 5], default=False):
-    if len(weights) <> window:
+    if len(weights) != window:
         return np.zeros(shape=len(series))
 
     # Convert pandas.series to list

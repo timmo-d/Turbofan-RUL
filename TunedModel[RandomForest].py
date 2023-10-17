@@ -33,7 +33,7 @@ response_column = 'RUL'
 model = H2ORandomForestEstimator(nbins=250, ntress=100, max_depth=50)
 model.train(x=training_columns, y=response_column, training_frame=hTrain, validation_frame=hValidate)
 
-print model.model_performance(test_data=hTest)
+print(model.model_performance(test_data=hTest))
 
 predict = DataFrameParser.h2oToNumpyArray(model.predict(test_data=hTest))
 actual = DataFrameParser.h2oToNumpyArray(hTest['RUL'])
@@ -41,7 +41,7 @@ actual = DataFrameParser.h2oToNumpyArray(hTest['RUL'])
 
 Chart.residual_histogram(actual, predict)
 Chart.residual_vs_estimated(actual, predict)
-Chart.acutal_and_predict(actual, predict)
+Chart.actual_and_predict(actual, predict)
 
 
 
